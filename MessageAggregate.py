@@ -3,6 +3,7 @@
 
 import TextParser
 import glob
+inport numpy as np
 
 # path_to_dir is the path to the folder containing html messages
 def aggregator(path_to_dir):
@@ -15,4 +16,6 @@ def aggregator(path_to_dir):
         for item in c:
             bigList.append(item)
 
-    return len(bigList)
+    return bigList
+
+print(aggregator("Data/")[0])
