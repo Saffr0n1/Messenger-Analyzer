@@ -31,7 +31,4 @@ def cleanse(list):
         for i in range(len(item)):
             item[i] = item[i][1:-1]
 
-    return list[0]
-
-print(cleanse(text_filter(text_to_string("Data\message_1.html"))))
-
+    return list
