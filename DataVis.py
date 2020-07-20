@@ -7,11 +7,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-i = MessageAggregate.aggregator("Data/")
-print(i.groupby(i.index.day)['Name'].value_counts())
-print(i['Name'].value_counts())
-
-
 def time_frequency(inputList, scale, startRange, endRange, color):
     if startRange == 'Beginning':
         startRange = inputList.index[1]
@@ -52,13 +47,13 @@ def reindex(inputList, color,index):
     plt.legend()
     plt.show()
 
-# def all_frequency(inputList, startRange, endRange):
-#     if startRange == 'Beginning':
-#         startRange = inputList.index[1]
-#     if endRange == 'End':
-#         endRange = inputList.index[-1]
-#
-#     inputList = inputList.loc[startRange:endRange]
+def all_frequency(inputList, color):
+    labels = inputList["Name"].value_counts().index.values.tolist()
+    amounts = inputList["Name"].value_counts().values.tolist()
+    sns.set()
+    sns.set(rc={'figure.figsize': (4, 4)})
+    plt.pie(amounts, labels=labels, colors=color, autopct='%1.1f%%')
+    plt.show()
 
 
 
